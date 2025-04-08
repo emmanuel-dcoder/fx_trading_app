@@ -34,7 +34,7 @@ TFx Trading App API allows users to register , get verified and is able to get r
 
    - Register users
    - verify users
-   - reend otp
+   - resend otp
    - Login
 
 2. **Wallet**:
@@ -70,14 +70,14 @@ TFx Trading App API allows users to register , get verified and is able to get r
 ## Base URL
 
 The API is hosted at:  
-**`https://musicbookingapi.onrender.com`**
+**`https://fx-trading-app.onrender.com`**
 
 ## API Documentation
 
 ### Swagger Documentation
 
 Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
-[**Swagger Docs**](https://musicbookingapi.onrender.com/docs)
+[**Swagger Docs**](https://fx-trading-app.onrender.com/docs)
 
 ## GitHub Repository
 
@@ -120,6 +120,45 @@ $ npm run start:prod
 - `EXCHANGE_RATE_API_KEY`: exchange rate secret key.
 - `PAYSTACK_SK_KEY`: paystack payment key.
 - `PAYSTACK_BASE_URL`: paystack base url i.e https://api.paystack.co.
+
+## Docker Compose
+
+version: '3.8'
+services:
+redis:
+image: redis:latest
+ports: - '6379:6379'
+volumes: - redis-data:/data
+command: redis-server --requirepass redis_password
+volumes:
+redis-data:
+
+### Docker Compose
+
+This project uses Docker Compose to manage a Redis instance for caching FX rates. Below is a detailed breakdown of its setup and usage.
+
+#### What It Does
+
+- **Purpose**: Runs a Redis server to cache exchange rates for endpoints like `/fx/rates` and `/fx/rate`. Cached data expires after 5 minutes, ensuring fresh rates while minimizing API requests.
+- **Benefits**: Speeds up response times (e.g., <1ms from Redis vs. 100-500ms from the API) and reduces costs or rate limits from the ExchangeRate-API.
+
+#### Configuration Breakdown
+
+The `docker-compose.yml` file is defined as follows:
+
+```yaml
+version: '3.8'
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    command: redis-server --requirepass redis_password
+volumes:
+  redis-data:
+```
 
 ## Endpoints
 
