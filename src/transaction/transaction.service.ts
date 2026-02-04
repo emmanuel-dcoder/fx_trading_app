@@ -1,9 +1,4 @@
-import {
-  BadGatewayException,
-  BadRequestException,
-  HttpException,
-  Injectable,
-} from '@nestjs/common';
+import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as crypto from 'crypto';
@@ -53,7 +48,7 @@ export class TransactionsService {
     if (!transaction) throw new BadRequestException('Invalid transaction');
 
     if (transaction.status === 'confirmed')
-      throw new BadRequestException('Like duplicate transaction');
+      throw new BadRequestException('Likely duplicate transaction');
 
     if (event.event === 'charge.success') {
       const wallet = await this.walletRepo.findOne({

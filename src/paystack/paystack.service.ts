@@ -1,4 +1,3 @@
-// paystack.service.ts
 import { BadRequestException, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { IPaymentProvider } from './interface/payment-provider.interface';
