@@ -58,6 +58,7 @@ TFx Trading App API allows users to register , get verified and is able to get r
 ## Technology Stack
 
 - **Framework**: NestJS (Node.js)
+- **ORM**: TypeORM
 - **Database**: PostgreSQL
 - **Authentication**: JWT (JSON Web Tokens) via `@nestjs/jwt` and `passport-jwt`
 - **Validation**: `class-validator` and `class-transformer`
