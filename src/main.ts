@@ -18,7 +18,7 @@ async function bootstrap() {
 
   // Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('Fx Trading App API')
+    .setTitle('Backend Engineering Assessment: Credpal FX Trading App')
     .setDescription('API for currency trading')
     .setVersion('1.0')
     .addBearerAuth()
