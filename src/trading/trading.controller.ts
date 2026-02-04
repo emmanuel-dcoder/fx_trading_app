@@ -19,7 +19,7 @@ import {
 } from '@nestjs/swagger';
 
 @Controller('wallet')
-@ApiTags('trading')
+@ApiTags('Trading or Converting Currencies')
 @UseGuards(JwtAuthGuard)
 @ApiBearerAuth()
 export class TradingController {

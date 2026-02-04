@@ -1,20 +1,17 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { HttpException, Inject, Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { createClient } from 'redis';
+import { REDIS_CLIENT } from 'src/core/redis/redis.provider';
 import { envConfig } from 'src/core/config/env.config';
+import type { RedisClientType } from 'redis';
 
 @Injectable()
 export class FxService {
-  private redisClient = createClient({
-    url: `redis://${envConfig.redis.host}:${envConfig.redis.port}`,
-  });
-
-  constructor(private httpService: HttpService) {
-    this.redisClient
-      .connect()
-      .catch((err) => console.error('Redis connection error:', err));
-  }
+  constructor(
+    private readonly httpService: HttpService,
+    @Inject(REDIS_CLIENT)
+    private readonly redisClient: RedisClientType,
+  ) {}
 
   async getRate(from: string, to: string): Promise<number> {
     try {
@@ -45,18 +42,21 @@ export class FxService {
 
       const currencies = ['NGN', 'USD', 'EUR', 'GBP'];
       const rates: Record<string, number> = {};
+
       for (const from of currencies) {
         const response = await firstValueFrom(
           this.httpService.get(
             `https://v6.exchangerate-api.com/v6/${envConfig.rate.key}/latest/${from}`,
           ),
         );
+
         for (const to of currencies) {
           if (from !== to) {
             rates[`${from}_${to}`] = response.data.conversion_rates[to];
           }
         }
       }
+
       const result = { rates };
       await this.redisClient.set(cacheKey, JSON.stringify(result), { EX: 300 });
       return result;

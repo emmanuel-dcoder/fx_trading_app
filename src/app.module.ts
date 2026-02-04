@@ -9,9 +9,11 @@ import { WalletModule } from './wallet/wallet.module';
 import { FxModule } from './fx/fx.module';
 import { TradingModule } from './trading/trading.module';
 import { TransactionsModule } from './transaction/transaction.module';
+import { RedisModule } from './core/redis/redis.module';
 
 @Module({
   imports: [
+    RedisModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       ...dbconfig.getTypeOrmConfig(),
