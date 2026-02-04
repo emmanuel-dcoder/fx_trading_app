@@ -68,6 +68,8 @@ TFx Trading App API allows users to register , get verified and is able to get r
 
 ---
 
+## API Documentation
+
 ## Swagger
 
 Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
@@ -76,11 +78,7 @@ Explore the interactive Swagger UI for detailed endpoint descriptions, request/r
 ## Base URL
 
 The API is hosted at:  
-**`https://fx-trading-app.onrender.com`**
-
-## API Documentation
-
-### Swagger Documentation
+[**Base URL**](https://credpal-fx-trading-app.onrender.com)
 
 ## GitHub Repository
 
@@ -120,6 +118,7 @@ $ npm run start:prod
 - `MAIL_PASSWORD`: smpt host name.
 - `REDIS_HOST`: redis host name e.g local.
 - `REDIS_PORT`: redis port number 6379.
+- `REDIS_ENABLED : false.
 - `EXCHANGE_RATE_API_KEY`: exchange rate secret key.
 - `PAYSTACK_SK_KEY`: paystack payment key.
 - `PAYSTACK_BASE_URL`: paystack base url i.e https://api.paystack.co.
