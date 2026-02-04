@@ -22,11 +22,11 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-# Fx Trading App API
+# CredPal Fx Trading App API
 
 # Overview
 
-TFx Trading App API allows users to register , get verified and is able to get real time FX exchange rates and can also convert rates and trade. The API is deployed on Render and includes comprehensive documentation via Swagger and Postman.
+Credpal Fx Trading App API allows users to register , get verified and is able to get real time FX exchange rates and can also convert rates and trade. The API is deployed on Render and includes comprehensive documentation via Swagger and Postman.
 
 ## Features
 
