@@ -83,7 +83,7 @@ The API is hosted at:
 ## GitHub Repository
 
 The source code is available at:  
-[**GitHub Repo**](https://github.com/codewithemmy/Music-booking-app)
+[**GitHub Repo**](https://github.com/codewithemmy/credpal_fx_trading)
 
 ---
 
