@@ -68,6 +68,11 @@ TFx Trading App API allows users to register , get verified and is able to get r
 
 ---
 
+## Swagger
+
+Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
+[**Swagger Docs**](https://credpal-fx-trading-app.onrender.com/docs)
+
 ## Base URL
 
 The API is hosted at:  
@@ -76,9 +81,6 @@ The API is hosted at:
 ## API Documentation
 
 ### Swagger Documentation
-
-Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
-[**Swagger Docs**](https://fx-trading-app.onrender.com/docs)
 
 ## GitHub Repository
 
